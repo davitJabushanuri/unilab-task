@@ -1,8 +1,8 @@
 {
-  "arrowParens": "always",
-  "singleQuote": false,
-  "semi": true,
-  "tabWidth": 2,
-  "endOfLine": "lf",
-  "useTabs": true
+	"arrowParens": "always",
+	"singleQuote": false,
+	"semi": true,
+	"tabWidth": 2,
+	"endOfLine": "lf",
+	"useTabs": true
 }
