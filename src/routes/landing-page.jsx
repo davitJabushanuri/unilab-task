@@ -1,10 +1,5 @@
-import { WritingIcon } from "../assets/writing-icon";
+import { Landing } from "../components/landing";
 
 export const LandingPage = () => {
-	return (
-		<div id="landing-page">
-			<WritingIcon />
-			hello
-		</div>
-	);
+	return <Landing />;
 };
