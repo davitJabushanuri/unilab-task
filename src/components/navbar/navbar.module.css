@@ -1,0 +1,25 @@
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.8em;
+
+	& a {
+		font-size: var(--fs-2xl);
+		font-weight: var(--fw-bold);
+		padding: 0.1em;
+		transition: color 0.1s ease-in-out;
+
+		&:hover {
+			color: var(--clr-white-100);
+		}
+
+		&:active {
+			color: var(--clr-white-200);
+		}
+
+		&:focus-visible {
+			text-decoration: underline;
+		}
+	}
+}
