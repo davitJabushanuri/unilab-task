@@ -1,0 +1,51 @@
+.container {
+	display: flex;
+	align-items: center;
+	gap: 4rem;
+	padding: 0 2em;
+	border-left: 1px solid var(--clr-pale);
+
+	& span {
+		font-size: var(--fs-2xl);
+		max-width: 220px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: none;
+
+		@media screen and (min-width: 768px) {
+			display: block;
+		}
+	}
+
+	& button {
+		width: clamp(40px, 40px + 2vw, 80px);
+		aspect-ratio: 1 / 1;
+		border-radius: 100vmax;
+		overflow: hidden;
+		cursor: pointer;
+
+		&:hover {
+			& img {
+				opacity: 0.9;
+			}
+		}
+
+		&:active {
+			& img {
+				opacity: 0.8;
+			}
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--clr-blue);
+			outline-offset: 2px;
+		}
+
+		& img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
