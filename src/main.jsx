@@ -3,41 +3,10 @@ import ReactDOM from "react-dom/client";
 
 import "./styles/reset.css";
 import "./styles/index.css";
-
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-import { LandingPage } from "./routes/landing-page";
-import { AuthPage } from "./routes/auth-page";
-import { FormPage } from "./routes/form-page";
-import { ApiPage } from "./routes/api-page";
-import { NotFound } from "./routes/not-found.jsx";
-
-const router = createBrowserRouter([
-	{
-		path: "/",
-		element: <LandingPage />,
-	},
-	{
-		path: "/login",
-		element: <AuthPage />,
-	},
-	{
-		path: "/form",
-		element: <FormPage />,
-	},
-	{
-		path: "/people",
-		element: <ApiPage />,
-	},
-
-	{
-		path: "*",
-		element: <NotFound />,
-	},
-]);
+import { Router } from "./routes/router";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<Router />
 	</React.StrictMode>,
 );
