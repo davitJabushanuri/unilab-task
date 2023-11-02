@@ -1,4 +1,11 @@
 @import "./reset.css";
-@import "./typography.css";
+@import "./colors.css";
 @import "./typography.css";
 @import "./z-index.css";
+
+body {
+	font-family: var(--font-montserrat);
+	background-color: var(--clr-black);
+	color: var(--clr-white);
+	font-size: var(--fs-base);
+}
