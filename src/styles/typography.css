@@ -1,4 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap");
+
 :root {
+	--font-rowdies: "Rowdies", sans-serif;
+	--font-montserrat: "Montserrat", sans-serif;
+	--font-helvetica: "Helvetica", sans-serif;
+
 	/* font size */
 	--fs-xs: clamp(0.8rem, 3vw, 0.875rem); /* 14px */
 	--fs-base: clamp(1rem, 2.5vw, 1.125rem); /* 18px */
@@ -14,25 +21,4 @@
 	--fw-medium: 500;
 	--fw-bold: 700;
 	--fw-extrabold: 900;
-
-	/* colors */
-	--clr-blue: #4980c0;
-	--clr-blue-100: #6a9ad1;
-	--clr-blue-200: #2f669f;
-
-	--clr-white: #ffffff;
-	--clr-white-100: #f0f0f0;
-	--clr-white-200: #dadada;
-
-	--clr-black: #000000;
-
-	--clr-gray: #f6f6f6;
-	--clr-gray-100: #dadada;
-	--clr-gray-200: #bebebe;
-
-	--clr-pale: #e6ebff;
-	--clr-pale-100: #c8d1f4;
-	--clr-pale-200: #aab8e9;
-
-	--clr-silver: #a5a5a5;
 }
