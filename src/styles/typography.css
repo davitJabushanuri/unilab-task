@@ -10,8 +10,8 @@
 	--fs-xs: clamp(0.8rem, 3vw, 0.875rem); /* 14px */
 	--fs-base: clamp(1rem, 2.5vw, 1.125rem); /* 18px */
 	--fs-lg: clamp(1rem, 0.8rem + 4vw, 1.5rem); /* 24px */
-	--fs-xl: clamp(1.2rem, 1rem + 2vw, 2.25rem); /* 36px */
-	--fs-2xl: clamp(2.25rem, 1vw, 2.5rem); /* 40px */
+	--fs-xl: clamp(1rem, 1rem + 2vw, 2.25rem); /* 36px */
+	--fs-2xl: clamp(1.2rem, 1rem + 2vw, 2.5rem); /* 40px */
 	--fs-3xl: clamp(1.8rem, 1.8rem + 4vw, 4rem); /* 64px */
 	--fs-4xl: clamp(2rem, 2rem + 5vw, 6rem); /* 96px */
 
