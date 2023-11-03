@@ -1,0 +1,55 @@
+.container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: fit-content;
+	height: fit-content;
+	background-color: var(--clr-black);
+	width: min(90vw, 400px);
+	padding: 1rem;
+	border-radius: 1rem;
+	animation: slideUp 0.15s ease-in-out;
+
+	& .close {
+		display: grid;
+		place-items: center;
+		padding: 0.5em;
+		border-radius: 100vmax;
+		cursor: pointer;
+		margin-bottom: 1rem;
+		transition: background-color 0.15s ease-in-out;
+
+		&:hover {
+			background-color: var(--clr-black-100);
+		}
+
+		&:active {
+			background-color: var(--clr-black-200);
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--clr-white);
+			background-color: var(--clr-black-100);
+		}
+
+		& svg {
+			width: 2rem;
+			height: 2rem;
+			fill: var(--clr-white);
+		}
+	}
+}
+
+@keyframes slideUp {
+	0% {
+		transform: translateY(50%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
