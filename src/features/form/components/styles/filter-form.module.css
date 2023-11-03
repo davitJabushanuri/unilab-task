@@ -1,0 +1,19 @@
+.container {
+	width: min(100%, 1200px);
+
+	& .filters {
+		display: grid;
+		gap: 0.8rem;
+
+		@media screen and (min-width: 700px) {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.filterContainer {
+			@media screen and (min-width: 700px) {
+				display: none;
+			}
+		}
+	}
+}

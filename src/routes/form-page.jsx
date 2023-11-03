@@ -1,3 +1,11 @@
+import { Header } from "../components/header";
+import { FormLayout } from "../features/form";
+
 export const FormPage = () => {
-	return <div id="form-page"></div>;
+	return (
+		<div id="form-page">
+			<Header />
+			<FormLayout />
+		</div>
+	);
 };

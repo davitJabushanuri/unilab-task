@@ -1,0 +1,38 @@
+.container {
+	background-color: var(--clr-white);
+	color: var(--clr-black);
+	border-radius: 10px;
+	width: min(100%);
+	font-size: var(--fs-base);
+	font-weight: var(--fw-medium);
+	padding: 0.5rem;
+	transition: background-color 0.1s ease-in-out;
+
+	@media screen and (min-width: 700px) {
+		width: min(100%, 260px);
+	}
+
+	&:hover {
+		background-color: var(--clr-white-100);
+	}
+
+	&:focus-within {
+		outline: 2px solid var(--clr-blue);
+	}
+
+	& label {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 1rem;
+
+		& svg {
+			width: 1.8rem;
+			height: 1.8rem;
+			stroke: var(--clr-charcoal);
+		}
+
+		& input {
+			max-width: 100%;
+		}
+	}
+}
