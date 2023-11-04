@@ -10,16 +10,16 @@ export const ArrowsRightIcon = () => {
 			<path
 				d="M13 17L18 12L13 7"
 				stroke="white"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M6 17L11 12L6 7"
 				stroke="white"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 		</svg>
 	);
