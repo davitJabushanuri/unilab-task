@@ -1,5 +1,5 @@
-import { Header } from "../components/header";
-import { FormLayout } from "../features/form";
+import { Header } from "@/components/header";
+import { FormLayout } from "@/features/form";
 
 export const FormPage = () => {
 	return (

@@ -1,5 +1,5 @@
-import { FilterForm } from "../components/filter-form";
 import { Filter } from "./filter";
+import { FilterForm } from "./filter-form";
 import styles from "./styles/form-layout.module.css";
 
 export const FormLayout = () => {

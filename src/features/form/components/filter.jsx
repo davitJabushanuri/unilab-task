@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./styles/filter.module.css";
-import { ChevronRightIcon } from "../assets/chevron-right-icon";
 import { useData } from "../hooks/useData";
+import { ChevronRightIcon } from "../assets/chevron-right-icon";
 
 export const Filter = () => {
 	const { isFilterOpen } = useData();
@@ -12,7 +12,7 @@ export const Filter = () => {
 		<div className={styles.container}>
 			<FilterGroup
 				filterName="სტუდენტის სტატუსი"
-				filters={["ACTIVE", "INACTIVE"]}
+				filters={[{ სტატუსი: "ACTIVE" }, "ACTIVE", "INACTIVE"]}
 			/>
 			<FilterGroup filterName="სქესი" filters={["MALE", "FEMALE"]} />
 			<div className={styles.border} />
@@ -54,11 +54,20 @@ const FilterGroup = ({ filterName, filters }) => {
 };
 
 const FilterOption = ({ filter }) => {
+	const { filterData } = useData();
+
 	return (
 		<div className={styles.filterOption}>
 			<label>
 				{filter}
-				<input type="checkbox" />
+				<input
+					type="checkbox"
+					name={filter}
+					defaultChecked={true}
+					onChange={(e) =>
+						filterData({ checked: e.target.checked, name: filter })
+					}
+				/>
 				<span className={styles.checkmark}></span>
 			</label>
 		</div>

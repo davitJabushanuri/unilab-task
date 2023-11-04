@@ -1,5 +1,5 @@
-import { Posts } from "../features/posts";
-import { Header } from "../components/header";
+import { Header } from "@/components/header";
+import { Posts } from "@/features/posts";
 
 export const ApiPage = () => {
 	return (

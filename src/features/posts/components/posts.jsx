@@ -1,5 +1,4 @@
-import { usePagination } from "../../pagination";
-import { Pagination } from "../../pagination";
+import { Pagination, usePagination } from "@/features/pagination";
 import { useFetch } from "../hooks/useFetch";
 import { Post } from "./post";
 import styles from "./styles/posts.module.css";

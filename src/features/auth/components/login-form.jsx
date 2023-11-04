@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { PhotoIcon } from "../assets/photo-icon";
 import styles from "./styles/login-form.module.css";
-import { CloseIcon } from "../../../assets/close-icon";
 import { chooseImage } from "../utils/choose-image";
+import { CloseIcon } from "@/assets/close-icon";
 import { signIn } from "../utils/signin";
 
 export const LoginForm = () => {

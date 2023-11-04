@@ -2,6 +2,7 @@ import { Filter } from "./filter";
 import { OpenFilter } from "./open-filter";
 import { Search } from "./search";
 import styles from "./styles/filter-form.module.css";
+import { Table } from "./table";
 
 export const FilterForm = () => {
 	return (
@@ -12,6 +13,10 @@ export const FilterForm = () => {
 					<Filter />
 				</div>
 				<Search />
+			</div>
+
+			<div className={styles.table}>
+				<Table />
 			</div>
 		</div>
 	);
