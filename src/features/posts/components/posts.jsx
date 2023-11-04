@@ -1,21 +1,19 @@
-import { useFetch } from "../hooks/useFetch";
+import { usePagination } from "../../pagination";
 import { Pagination } from "../../pagination";
+import { useFetch } from "../hooks/useFetch";
 import { Post } from "./post";
 import styles from "./styles/posts.module.css";
 
-import { useState } from "react";
-
 export const Posts = () => {
-	const [currentPage, setCurrentPage] = useState(1);
 	const limit = 10;
 	const totalPosts = 100;
-	const totalPages = Math.ceil(totalPosts / limit);
+
+	const { currentPage, totalPages, handlePageChange } = usePagination(
+		totalPosts,
+		limit,
+	);
 
 	const { data, loading, error } = useFetch(currentPage);
-
-	const handlePageChange = (pageNumber) => {
-		setCurrentPage(pageNumber);
-	};
 
 	if (loading) {
 		return <div className={styles.container}>Loading...</div>;
