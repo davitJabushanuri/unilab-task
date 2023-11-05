@@ -9,11 +9,16 @@ export const Pagination = ({ totalPages, currentPage, onPageChange }) => {
 
 	return (
 		<div className={styles.container}>
-			<button disabled={currentPage === 1} onClick={() => onPageChange(1)}>
+			<button
+				aria-label="Navigate to the first page"
+				disabled={currentPage === 1}
+				onClick={() => onPageChange(1)}
+			>
 				<ArrowsLeftIcon />
 			</button>
 
 			<button
+				aria-label="Previous page"
 				disabled={currentPage === 1}
 				onClick={() => onPageChange(currentPage - 1)}
 			>
@@ -30,6 +35,7 @@ export const Pagination = ({ totalPages, currentPage, onPageChange }) => {
 				</button>
 			))}
 			<button
+				aria-label="Next page"
 				disabled={currentPage === totalPages}
 				onClick={() => onPageChange(currentPage + 1)}
 			>
@@ -37,6 +43,7 @@ export const Pagination = ({ totalPages, currentPage, onPageChange }) => {
 			</button>
 
 			<button
+				aria-label="Navigate to the last page"
 				disabled={currentPage === totalPages}
 				onClick={() => onPageChange(totalPages)}
 			>
