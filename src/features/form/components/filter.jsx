@@ -1,20 +1,57 @@
 import { useState } from "react";
 import styles from "./styles/filter.module.css";
-import { useData } from "../hooks/useData";
+import { useFilter } from "../hooks/useFilter";
 import { ChevronRightIcon } from "../assets/chevron-right-icon";
 
 export const Filter = () => {
-	const { isFilterOpen } = useData();
+	const {
+		isFilterOpen,
+		toggleMaleFilter,
+		isMaleFilterChecked,
+		isFemaleFilterChecked,
+		toggleFemaleFilter,
+		isActiveFilterChecked,
+		isInactiveFilterChecked,
+		toggleActiveFilter,
+		toggleInactiveFilter,
+	} = useFilter();
 
 	if (!isFilterOpen) return null;
 
+	const statusFilters = [
+		{
+			name: "ACTIVE",
+			checked: isActiveFilterChecked,
+			onChange: toggleActiveFilter,
+			id: 1,
+		},
+		{
+			name: "INACTIVE",
+			checked: isInactiveFilterChecked,
+			onChange: toggleInactiveFilter,
+			id: 2,
+		},
+	];
+
+	const genderFilters = [
+		{
+			name: "MALE",
+			checked: isMaleFilterChecked,
+			onChange: toggleMaleFilter,
+			id: 1,
+		},
+		{
+			name: "FEMALE",
+			checked: isFemaleFilterChecked,
+			onChange: toggleFemaleFilter,
+			id: 2,
+		},
+	];
+
 	return (
 		<div className={styles.container}>
-			<FilterGroup
-				filterName="სტუდენტის სტატუსი"
-				filters={[{ სტატუსი: "ACTIVE" }, "ACTIVE", "INACTIVE"]}
-			/>
-			<FilterGroup filterName="სქესი" filters={["MALE", "FEMALE"]} />
+			<FilterGroup filterName="სტუდენტის სტატუსი" filters={statusFilters} />
+			<FilterGroup filterName="სქესი" filters={genderFilters} />
 			<div className={styles.border} />
 		</div>
 	);
@@ -44,29 +81,32 @@ const FilterGroup = ({ filterName, filters }) => {
 
 			{areFiltersOpen && (
 				<div className={styles.filters}>
-					{filters.map((filter) => (
-						<FilterOption key={filter} filter={filter} />
-					))}
+					{filters.map((filter) => {
+						return (
+							<FilterOption
+								key={filter.id}
+								name={filter.name}
+								onChange={filter.onChange}
+								checked={filter.checked}
+							/>
+						);
+					})}
 				</div>
 			)}
 		</div>
 	);
 };
 
-const FilterOption = ({ filter }) => {
-	const { filterData } = useData();
-
+const FilterOption = ({ name, onChange, checked }) => {
 	return (
 		<div className={styles.filterOption}>
 			<label>
-				{filter}
+				{name}
 				<input
 					type="checkbox"
-					name={filter}
-					defaultChecked={true}
-					onChange={(e) =>
-						filterData({ checked: e.target.checked, name: filter })
-					}
+					name={name}
+					onChange={onChange}
+					checked={checked}
 				/>
 				<span className={styles.checkmark}></span>
 			</label>
