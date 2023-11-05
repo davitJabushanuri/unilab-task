@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import data from "../../../../data.json";
 
-export const useData = create((set) => ({
+export const useFilter = create((set) => ({
 	data: [...data],
 
 	isMaleFilterChecked: true,

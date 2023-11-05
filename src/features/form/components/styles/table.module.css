@@ -12,6 +12,7 @@
 		font-family: var(--font-helvetica);
 		font-size: var(--fs-xs);
 		border-radius: 10px;
+		overflow: hidden;
 
 		& thead {
 			font-weight: var(--fw-bold);

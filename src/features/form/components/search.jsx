@@ -1,9 +1,9 @@
 import { SearchIcon } from "../assets/search-icon";
-import { useData } from "../hooks/useData";
+import { useFilter } from "../hooks/useFilter";
 import styles from "./styles/search.module.css";
 
 export const Search = () => {
-	const { searchData } = useData();
+	const { searchData } = useFilter();
 
 	return (
 		<div className={styles.container}>

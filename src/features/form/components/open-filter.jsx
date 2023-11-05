@@ -1,9 +1,9 @@
 import { FilterIcon } from "../assets/filter-icon";
 import styles from "./styles/open-filter.module.css";
-import { useData } from "../hooks/useData";
+import { useFilter } from "../hooks/useFilter";
 
 export const OpenFilter = () => {
-	const { toggleFilter } = useData();
+	const { toggleFilter } = useFilter();
 
 	return (
 		<button onClick={toggleFilter} className={styles.container}>

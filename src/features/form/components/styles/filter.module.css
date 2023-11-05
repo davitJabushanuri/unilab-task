@@ -36,6 +36,20 @@
 		}
 	}
 
+	& .filterName {
+		&:hover {
+			color: var(--clr-blue);
+		}
+
+		&:focus-within {
+			color: var(--clr-blue);
+		}
+
+		& span {
+			display: flex;
+		}
+	}
+
 	& .filters {
 		margin-left: 2rem;
 		display: grid;
