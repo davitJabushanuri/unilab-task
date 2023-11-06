@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles/filter.module.css";
 import { useFilter } from "../hooks/useFilter";
 import { ChevronRightIcon } from "../assets/chevron-right-icon";
 
 export const Filter = () => {
 	const {
-		isFilterOpen,
 		toggleMaleFilter,
 		isMaleFilterChecked,
 		isFemaleFilterChecked,
@@ -14,9 +13,8 @@ export const Filter = () => {
 		isInactiveFilterChecked,
 		toggleActiveFilter,
 		toggleInactiveFilter,
+		closeFilter,
 	} = useFilter();
-
-	if (!isFilterOpen) return null;
 
 	const statusFilters = [
 		{
@@ -48,8 +46,22 @@ export const Filter = () => {
 		},
 	];
 
+	useEffect(() => {
+		const handleKeyDown = (e) => {
+			if (e.key === "Escape") {
+				closeFilter();
+				const filterButton = document.querySelector(`#filter-button`);
+				filterButton.focus();
+			}
+		};
+
+		window.addEventListener("keydown", handleKeyDown);
+
+		return () => window.removeEventListener("keydown", handleKeyDown);
+	}, [closeFilter]);
+
 	return (
-		<div className={styles.container}>
+		<div id="filter" className={styles.container}>
 			<FilterGroup filterName="სტუდენტის სტატუსი" filters={statusFilters} />
 			<FilterGroup filterName="სქესი" filters={genderFilters} />
 			<div className={styles.border} />
@@ -100,13 +112,23 @@ const FilterGroup = ({ filterName, filters }) => {
 const FilterOption = ({ name, onChange, checked }) => {
 	return (
 		<div className={styles.filterOption}>
-			<label>
+			<label
+				tabIndex={0}
+				onKeyDown={(e) => {
+					if (e.key === "Enter") {
+						onChange();
+					}
+				}}
+				htmlFor={name}
+			>
 				{name}
 				<input
+					id={name}
 					type="checkbox"
 					name={name}
 					onChange={onChange}
 					checked={checked}
+					aria-checked={checked}
 				/>
 				<span className={styles.checkmark}></span>
 			</label>

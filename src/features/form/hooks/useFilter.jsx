@@ -21,7 +21,8 @@ export const useFilter = create((set) => ({
 		})),
 
 	isFilterOpen: false,
-	toggleFilter: () => set((state) => ({ isFilterOpen: !state.isFilterOpen })),
+	openFilter: () => set({ isFilterOpen: true }),
+	closeFilter: () => set({ isFilterOpen: false }),
 
 	searchData: (query) => {
 		const newData = data.filter((item) => {
