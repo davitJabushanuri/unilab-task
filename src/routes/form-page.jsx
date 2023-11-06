@@ -5,7 +5,9 @@ export const FormPage = () => {
 	return (
 		<div id="form-page">
 			<Header />
-			<FormLayout />
+			<main>
+				<FormLayout />
+			</main>
 		</div>
 	);
 };

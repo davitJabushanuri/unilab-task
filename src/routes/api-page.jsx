@@ -5,7 +5,9 @@ export const ApiPage = () => {
 	return (
 		<div>
 			<Header />
-			<Posts />
+			<main>
+				<Posts />
+			</main>
 		</div>
 	);
 };

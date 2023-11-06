@@ -19,7 +19,8 @@
 		}
 
 		&:focus-visible {
-			text-decoration: underline;
+			outline: 2px solid var(--clr-white);
+			outline-offset: 2px;
 		}
 	}
 }

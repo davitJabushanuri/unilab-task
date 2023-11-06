@@ -4,9 +4,9 @@ import styles from "./header.module.css";
 
 export const Header = () => {
 	return (
-		<div className={styles.container}>
+		<header className={styles.container}>
 			<Navbar />
 			<UserInfo />
-		</div>
+		</header>
 	);
 };

@@ -60,7 +60,7 @@ export const Table = () => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.tableContainer}>
-				<table>
+				<table tabIndex={0}>
 					<thead>
 						<tr>
 							<th>სტუდენტის სახელი და გვარი</th>
