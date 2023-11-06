@@ -45,6 +45,48 @@
 					padding: 1.4rem;
 					text-align: center;
 					vertical-align: middle;
+
+					& .points {
+						border-radius: 100vmax;
+						cursor: pointer;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						gap: 0.2rem;
+						margin: auto;
+						transition: color 0.1s ease-in-out;
+
+						& svg {
+							width: 1rem;
+							height: 1rem;
+
+							& path {
+								fill: var(--clr-charcoal-100);
+							}
+						}
+
+						&:hover {
+							color: var(--clr-blue);
+
+							& svg {
+								& path {
+									fill: var(--clr-blue);
+								}
+							}
+						}
+
+						&:focus-visible {
+							color: var(--clr-blue);
+							outline: 2px solid var(--clr-blue);
+							outline-offset: 0.4rem;
+
+							& svg {
+								& path {
+									fill: var(--clr-blue);
+								}
+							}
+						}
+					}
 				}
 			}
 

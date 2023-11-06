@@ -1,7 +1,8 @@
 import { Pagination, usePagination } from "@/features/pagination";
 import { useFilter } from "../hooks/useFilter";
 import styles from "./styles/table.module.css";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { SortIcon } from "../assets/sort-icon";
 
 export const Table = () => {
 	let limit = 10;
@@ -15,19 +16,21 @@ export const Table = () => {
 	} = usePagination(total, limit);
 
 	const {
-		data: students,
+		data,
 		isMaleFilterChecked,
 		isFemaleFilterChecked,
 		isActiveFilterChecked,
 		isInactiveFilterChecked,
 	} = useFilter();
 
+	let students = [...data];
+
 	const [paginatedData, setPaginatedData] = useState([
 		...students.slice((currentPage - 1) * 10, currentPage * 10),
 	]);
 
-	useEffect(() => {
-		const filteredStudents = students
+	const handleFilter = useCallback(() => {
+		const filteredStudents = data
 			.filter((student) => isMaleFilterChecked || student["სქესი"] !== "MALE")
 			.filter(
 				(student) => isFemaleFilterChecked || student["სქესი"] !== "FEMALE",
@@ -41,21 +44,41 @@ export const Table = () => {
 			);
 
 		setTotalPages(Math.ceil(filteredStudents.length / limit));
-
 		setPaginatedData(
-			filteredStudents.slice((currentPage - 1) * 10, currentPage * 10),
+			filteredStudents.slice((currentPage - 1) * limit, currentPage * limit),
 		);
 	}, [
-		currentPage,
-		students,
 		isMaleFilterChecked,
 		isFemaleFilterChecked,
 		isActiveFilterChecked,
 		isInactiveFilterChecked,
+		data,
+		currentPage,
 		setTotalPages,
 		limit,
-		setCurrentPage,
 	]);
+
+	const [sortOrder, setSortOrder] = useState("desc");
+
+	const handleSort = () => {
+		const sortedData = data.sort((a, b) => {
+			if (sortOrder === "desc") {
+				return b["ქულები"] - a["ქულები"];
+			} else {
+				return a["ქულები"] - b["ქულები"];
+			}
+		});
+
+		setPaginatedData(
+			sortedData.slice((currentPage - 1) * 10, currentPage * 10),
+		);
+		setSortOrder(sortOrder === "desc" ? "asc" : "desc");
+		setCurrentPage(1);
+	};
+
+	useEffect(() => {
+		handleFilter();
+	}, [handleFilter]);
 
 	return (
 		<div className={styles.container}>
@@ -66,7 +89,20 @@ export const Table = () => {
 							<th>სტუდენტის სახელი და გვარი</th>
 							<th>სტატუსი</th>
 							<th>სქესი</th>
-							<th>ქულები</th>
+							<th>
+								<button
+									className={styles.points}
+									scope="col"
+									tabIndex={0}
+									aria-label={`Sort by points, ${
+										sortOrder === "desc" ? "descending" : "ascending"
+									}`}
+									onClick={handleSort}
+								>
+									ქულები
+									<SortIcon />
+								</button>
+							</th>
 							<th>პირადი ნომერი</th>
 							<th>მეილი</th>
 							<th>მობილურის ნომერი</th>
