@@ -37,6 +37,7 @@
 	}
 
 	& .filterName {
+		text-wrap: nowrap;
 		&:hover {
 			color: var(--clr-blue);
 		}
@@ -64,17 +65,20 @@
 
 .filterOption {
 	& label {
+		padding: 0.4rem;
 		padding-left: 1.4rem;
 		position: relative;
 		font-size: var(--fs-xs);
-		display: flex;
-		align-items: center;
 
 		&:hover {
 			cursor: pointer;
 			& .checkmark {
 				background: var(--clr-gray-200);
 			}
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--clr-blue);
 		}
 
 		& input[type="checkbox"] {
@@ -91,8 +95,7 @@
 		& .checkmark {
 			background: var(--clr-gray-100);
 			position: absolute;
-			top: 0;
-			left: 0;
+			left: 0.1rem;
 			height: 20px;
 			width: 20px;
 			border-radius: 4px;

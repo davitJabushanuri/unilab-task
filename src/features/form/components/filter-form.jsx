@@ -1,5 +1,5 @@
-import { Filter } from "./filter";
-import { OpenFilter } from "./open-filter";
+import { FilterContainer } from "./filter-container";
+import { OpenFilter } from "./open-filter-button";
 import { Search } from "./search";
 import styles from "./styles/filter-form.module.css";
 import { Table } from "./table";
@@ -10,7 +10,7 @@ export const FilterForm = () => {
 			<div className={styles.filters}>
 				<OpenFilter />
 				<div className={styles.filterContainer}>
-					<Filter />
+					<FilterContainer />
 				</div>
 				<Search />
 			</div>

@@ -1,40 +1,58 @@
 .container {
-	display: block;
-	margin-top: 1rem;
-	overflow-x: auto;
-	width: 100%;
+	display: grid;
 
-	& table {
-		border-collapse: collapse;
-		border-spacing: 0;
-		background-color: var(--clr-white);
-		color: var(--clr-black);
-		font-family: var(--font-helvetica);
-		font-size: var(--fs-xs);
+	& .tableContainer {
+		display: block;
+		margin-top: 1rem;
+		width: 100%;
+		overflow-x: auto;
 		border-radius: 10px;
-		overflow: hidden;
 
-		& thead {
-			font-weight: var(--fw-bold);
-			color: var(--clr-charcoal);
-			text-align: center;
-			border-bottom: 1px solid var(--clr-gray-100);
-
-			& th {
-				padding: 1.6rem;
-			}
+		&::-webkit-scrollbar {
+			height: 0.8em;
 		}
 
-		& tbody {
-			& tr {
-				&:nth-child(even) {
-					background-color: var(--clr-gray);
-				}
+		&::-webkit-scrollbar-track {
+			background-color: var(--clr-gray-100);
+			border-radius: 0 0 10px 10px;
+			box-shadow: inset 0 0 5px var(--clr-gray-200);
+		}
 
-				& td {
-					padding: 1.2rem;
-					text-align: left;
-					width: 200px;
+		&::-webkit-scrollbar-thumb {
+			background-color: var(--clr-gray-200);
+			border-radius: 10px;
+		}
+
+		& table {
+			width: 100%;
+			background-color: var(--clr-white);
+			color: var(--clr-black);
+			font-family: var(--font-helvetica);
+			font-size: var(--fs-xs);
+			overflow: hidden;
+
+			& thead {
+				font-weight: var(--fw-bold);
+				color: var(--clr-charcoal);
+				text-align: center;
+				border-bottom: 1px solid var(--clr-gray-100);
+
+				& th {
+					padding: 1.6rem;
+				}
+			}
+
+			& tbody {
+				& tr {
+					&:nth-child(even) {
+						background-color: var(--clr-gray);
+					}
+
+					& td {
+						text-wrap: nowrap;
+						padding: 1.2rem;
+						text-align: left;
+					}
 				}
 			}
 		}

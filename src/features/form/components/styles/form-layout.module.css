@@ -1,16 +1,12 @@
 .container {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 1rem;
-	padding: 1rem;
-	margin: auto;
+	display: flex;
+	justify-content: center;
 
 	@media (min-width: 700px) {
-		grid-template-columns: auto 1fr;
 	}
 
 	@media (min-width: 1500px) {
-		grid-template-columns: auto 1200px auto;
+		grid-template-columns: 295px 1fr;
 	}
 
 	& .filterContainer {
@@ -18,21 +14,20 @@
 
 		@media (min-width: 700px) {
 			display: block;
-			width: min(220px, 295px);
+			margin-top: 5rem;
 		}
 
-		@media (min-width: 1500px) {
-			width: 295px;
-			margin-left: auto;
+		@media (min-width: 1600px) {
+			width: min(100%, 295px);
 		}
 	}
 
 	& .placeholder {
 		display: none;
 
-		@media (min-width: 1200px) {
+		@media (min-width: 1600px) {
 			display: block;
-			width: min(220px, 295px);
+			width: min(100%, 295px);
 		}
 	}
 }
