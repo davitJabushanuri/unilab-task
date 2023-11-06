@@ -8,6 +8,11 @@
 		overflow-x: auto;
 		border-radius: 10px;
 
+		&:focus-within {
+			outline: 2px solid var(--clr-blue);
+			outline-offset: 2px;
+		}
+
 		&::-webkit-scrollbar {
 			height: 0.8em;
 		}
@@ -33,12 +38,13 @@
 
 			& thead {
 				font-weight: var(--fw-bold);
-				color: var(--clr-charcoal);
-				text-align: center;
 				border-bottom: 1px solid var(--clr-gray-100);
 
 				& th {
-					padding: 1.6rem;
+					color: var(--clr-charcoal-100);
+					padding: 1.4rem;
+					text-align: center;
+					vertical-align: middle;
 				}
 			}
 
@@ -50,8 +56,14 @@
 
 					& td {
 						text-wrap: nowrap;
-						padding: 1.2rem;
-						text-align: left;
+						padding: 1.2rem 4rem;
+						text-align: center;
+						vertical-align: middle;
+
+						&:first-of-type {
+							text-align: left;
+							text-transform: uppercase;
+						}
 					}
 				}
 			}

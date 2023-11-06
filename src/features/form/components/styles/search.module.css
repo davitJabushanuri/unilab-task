@@ -18,6 +18,8 @@
 
 	&:focus-within {
 		outline: 2px solid var(--clr-blue);
+		outline-offset: 2px;
+		background-color: var(--clr-white-100);
 	}
 
 	& label {
