@@ -15,7 +15,7 @@ export const LoginForm = () => {
 
 	return (
 		<div className={styles.container}>
-			<form>
+			<form aria-label="Login to your account">
 				<h2>Get Started</h2>
 				<span>add a photo</span>
 
@@ -23,9 +23,15 @@ export const LoginForm = () => {
 					<input
 						ref={inputRef}
 						type="file"
+						accept="image/*"
 						className={styles.fileInput}
 						onChange={(e) => chooseImage(e, setUser)}
+						aria-describedby="image-instructions"
+						required
 					/>
+					<span className="visually-hidden" id="image-instructions">
+						Upload a profile picture (required)
+					</span>
 					{user.image ? (
 						<button
 							aria-label="remove a photo"
@@ -52,6 +58,7 @@ export const LoginForm = () => {
 
 				<div className={styles.nameInput}>
 					<input
+						required
 						type="text"
 						placeholder="Your name"
 						value={user.name}
@@ -61,7 +68,11 @@ export const LoginForm = () => {
 								name: e.target.value,
 							}))
 						}
+						aria-describedby="name-instructions"
 					/>
+					<span className="visually-hidden" id="name-instructions">
+						Enter your name (required)
+					</span>
 				</div>
 
 				<button

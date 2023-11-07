@@ -51,7 +51,7 @@ export const Pagination = ({ totalPages, currentPage, onPageChange }) => {
 			})}
 			<button
 				role="link"
-				aria-label={`Go to next page, ${currentPage + 1}`}
+				aria-label={`Go to next page, page ${currentPage + 1}`}
 				aria-disabled={currentPage === totalPages}
 				disabled={currentPage === totalPages}
 				onClick={() => onPageChange(currentPage + 1)}
