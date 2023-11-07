@@ -2,7 +2,7 @@ import { createPortal } from "react-dom";
 import styles from "./styles/modal-backdrop.module.css";
 import { useLayoutEffect, useRef } from "react";
 
-export const ModalBackdrop = ({ children, onClose }) => {
+export const ModalBackdrop = ({ children, onClose, ariaLabel }) => {
 	const modalRef = useRef(null);
 	const previouslyFocusedElementRef = useRef(null);
 
@@ -52,6 +52,7 @@ export const ModalBackdrop = ({ children, onClose }) => {
 
 	return createPortal(
 		<div
+			aria-label={ariaLabel}
 			ref={modalRef}
 			onClick={(e) => {
 				e.stopPropagation();

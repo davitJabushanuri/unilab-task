@@ -15,7 +15,7 @@ export const UserInfo = () => {
 
 	return (
 		<>
-			<div className={styles.container}>
+			<nav aria-label="Account controls" className={styles.container}>
 				<span>{user.name}</span>
 				<button
 					aria-label="Open user menu"
@@ -25,10 +25,13 @@ export const UserInfo = () => {
 				>
 					<img src={user.image} alt="User profile picture" />
 				</button>
-			</div>
+			</nav>
 
 			{isModalOpen && (
-				<ModalBackdrop onClose={() => setIsModalOpen(false)}>
+				<ModalBackdrop
+					ariaLabel={`Your profile`}
+					onClose={() => setIsModalOpen(false)}
+				>
 					<Modal onClose={() => setIsModalOpen(false)}>
 						<div className={styles.modalContent}>
 							<img src={user.image} alt="User profile picture" />
