@@ -24,6 +24,10 @@ export const OpenFilter = () => {
 					}
 				}
 			}}
+			aria-label={isFilterOpen ? "Close filter" : "Open filter"}
+			area-expanded={isFilterOpen.toString()}
+			aria-haspopup="menu"
+			aria-controls="filter"
 			className={styles.container}
 		>
 			<FilterIcon />

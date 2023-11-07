@@ -61,7 +61,12 @@ export const Filter = () => {
 	}, [closeFilter]);
 
 	return (
-		<div id="filter" className={styles.container}>
+		<div
+			role="menu"
+			aria-label="Filtering menu"
+			id="filter"
+			className={styles.container}
+		>
 			<FilterGroup filterName="სტუდენტის სტატუსი" filters={statusFilters} />
 			<FilterGroup filterName="სქესი" filters={genderFilters} />
 			<div className={styles.border} />
@@ -77,6 +82,9 @@ const FilterGroup = ({ filterName, filters }) => {
 			<button
 				className={styles.filterName}
 				onClick={() => setAreFiltersOpen(!areFiltersOpen)}
+				aria-expanded={areFiltersOpen}
+				aria-label={filterName + " filters"}
+				aria-controls={filterName}
 			>
 				<span
 					style={{
@@ -92,7 +100,7 @@ const FilterGroup = ({ filterName, filters }) => {
 			</button>
 
 			{areFiltersOpen && (
-				<div className={styles.filters}>
+				<div className={styles.filters} id={filterName}>
 					{filters.map((filter) => {
 						return (
 							<FilterOption
@@ -123,6 +131,7 @@ const FilterOption = ({ name, onChange, checked }) => {
 			>
 				{name}
 				<input
+					aria-label={name}
 					id={name}
 					type="checkbox"
 					name={name}
