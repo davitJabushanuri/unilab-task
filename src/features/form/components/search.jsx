@@ -6,16 +6,19 @@ export const Search = () => {
 	const { searchData } = useFilter();
 
 	return (
-		<div className={styles.container}>
-			<label htmlFor="search">
-				<SearchIcon />
-				<input
-					onChange={(e) => searchData(e.target.value)}
-					id="search"
-					type="text"
-					placeholder="Search"
-				/>
-			</label>
-		</div>
+		<label
+			aria-label="Search table"
+			htmlFor="search"
+			className={styles.container}
+		>
+			<SearchIcon />
+			<input
+				id="search"
+				role="combobox"
+				onChange={(e) => searchData(e.target.value)}
+				type="text"
+				placeholder="Search"
+			/>
+		</label>
 	);
 };

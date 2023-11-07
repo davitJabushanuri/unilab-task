@@ -25,18 +25,10 @@ export const useFilter = create((set) => ({
 	closeFilter: () => set({ isFilterOpen: false }),
 
 	searchData: (query) => {
-		const newData = data.filter((item) => {
-			const values = Object.values(item);
+		const newData = data.filter((student) => {
+			const fullName = `${student["სახელი"]} ${student["გვარი"]}`;
 
-			return values.some((value) => {
-				if (typeof value === "string") {
-					return value.toLowerCase().includes(query.toLowerCase());
-				} else if (typeof value === "number") {
-					return value.toString().includes(query);
-				}
-
-				return false;
-			});
+			return fullName && fullName.toLowerCase().includes(query.toLowerCase());
 		});
 
 		set({ data: newData });
