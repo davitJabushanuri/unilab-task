@@ -5,6 +5,15 @@
 	flex-wrap: wrap;
 	gap: 0.4rem;
 
+	& span {
+		font-size: var(--fs-base);
+		font-weight: var(--fw-medium);
+		padding: 0.2rem;
+		border-radius: 10px;
+		display: grid;
+		place-items: center;
+	}
+
 	& button {
 		font-size: var(--fs-base);
 		font-weight: var(--fw-medium);
