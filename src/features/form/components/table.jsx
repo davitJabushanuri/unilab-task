@@ -23,7 +23,7 @@ export const Table = () => {
 		isInactiveFilterChecked,
 	} = useFilter();
 
-	let students = [...data];
+	const [students, setStudents] = useState(data);
 
 	const [paginatedData, setPaginatedData] = useState([
 		...students.slice((currentPage - 1) * 10, currentPage * 10),
@@ -43,42 +43,47 @@ export const Table = () => {
 					isInactiveFilterChecked || student["სტატუსი"] !== "INACTIVE",
 			);
 
-		setTotalPages(Math.ceil(filteredStudents.length / limit));
-		setPaginatedData(
-			filteredStudents.slice((currentPage - 1) * limit, currentPage * limit),
-		);
+		const filteredLength = filteredStudents.length;
+
+		setStudents(filteredStudents);
+		setTotalPages(Math.ceil(filteredLength / limit));
+		setCurrentPage(1);
 	}, [
 		isMaleFilterChecked,
 		isFemaleFilterChecked,
 		isActiveFilterChecked,
 		isInactiveFilterChecked,
 		data,
-		currentPage,
+		setCurrentPage,
 		setTotalPages,
 		limit,
 	]);
 
+	useEffect(() => {
+		handleFilter();
+	}, [handleFilter]);
+
 	const [sortOrder, setSortOrder] = useState("desc");
 
 	const handleSort = () => {
-		const sortedData = data.sort((a, b) => {
-			if (sortOrder === "desc") {
-				return b["ქულები"] - a["ქულები"];
-			} else {
-				return a["ქულები"] - b["ქულები"];
-			}
-		});
-
-		setPaginatedData(
-			sortedData.slice((currentPage - 1) * 10, currentPage * 10),
+		setStudents(
+			students.sort((a, b) => {
+				if (sortOrder === "desc") {
+					return b["ქულები"] - a["ქულები"];
+				} else {
+					return a["ქულები"] - b["ქულები"];
+				}
+			}),
 		);
+
+		setPaginatedData(students.slice((currentPage - 1) * 10, currentPage * 10));
 		setSortOrder(sortOrder === "desc" ? "asc" : "desc");
 		setCurrentPage(1);
 	};
 
 	useEffect(() => {
-		handleFilter();
-	}, [handleFilter]);
+		setPaginatedData(students.slice((currentPage - 1) * 10, currentPage * 10));
+	}, [currentPage, students]);
 
 	return (
 		<div className={styles.container}>
