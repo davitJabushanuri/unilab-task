@@ -27,6 +27,9 @@
 		}
 
 		& .imageInput {
+			display: grid;
+			place-items: center;
+
 			& .fileInput {
 				display: none;
 			}
