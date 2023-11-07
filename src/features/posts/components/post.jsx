@@ -2,9 +2,9 @@ import styles from "./styles/post.module.css";
 
 export const Post = ({ post }) => {
 	return (
-		<article className={styles.container}>
+		<article aria-label={post.title} className={styles.container}>
 			<h2>{post.title}</h2>
-			<p>{post.body}</p>
+			<p aria-label={post.body}>{post.body}</p>
 		</article>
 	);
 };

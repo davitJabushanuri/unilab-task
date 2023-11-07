@@ -23,10 +23,13 @@ export const Posts = () => {
 					Error: {error}
 				</div>
 			) : (
-				<div className={styles.posts}>
-					{data.map((post) => {
-						return <Post post={post} key={post.id} />;
-					})}
+				<div role="region" aria-label="Home timeline">
+					<h2 className="visually-hidden">Recent posts</h2>
+					<div className={styles.posts}>
+						{data.map((post) => {
+							return <Post post={post} key={post.id} />;
+						})}
+					</div>
 				</div>
 			)}
 			<div className={styles.pagination}>
